@@ -1,15 +1,18 @@
 services:
   mail_service:
-    image: mailer_app_v1
-    # command: uwsgi --socket 0.0.0.0:9001 --module mail:app --http-timeout 600  --processes 4 --threads 8
-    command: python mail.py
-    ports:
-      - 9001:9001
-    env_file:
-      - .env
+      image: vivekdev01/mailer:1
+      # build:
+      #   context: .
+      #   dockerfile: Dockerfile
+      # command: uwsgi --socket 0.0.0.0:9000 --module mail:app --http-timeout 600  --processes 4 --threads 8
+      command: python mail.py
+      ports:
+        - 9000:9000
+      env_file:
+        - .env
 
 
-# docker-compose -p mailer_app_v1 down;
-# docker build -t mailer_app_v1 .;
-# docker-compose -p mailer_app_v1 up -d;
-# docker logs -f mailer_app_v1-mail_service-1;
+# docker-compose -p mailer down;
+# docker build -t vivekdev01/mailer:1 .;
+# docker-compose -p mailer up -d;
+# docker logs -f mailer-mail_service-1;

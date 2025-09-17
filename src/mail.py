@@ -13,7 +13,8 @@ GMAIL_EMAIL = os.getenv("GMAIL_EMAIL")
 GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 
 def send_email(to_email, subject, body):
-    msg = MIMEText(body)
+    # msg = MIMEText(body)
+    msg = MIMEText(body, 'html')
     msg['Subject'] = subject
     msg['From'] = GMAIL_EMAIL
     msg['To'] = to_email
@@ -53,4 +54,4 @@ def index():
     return "Mailer service is running."
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=9001)
+    app.run(host="0.0.0.0", port=9000)
