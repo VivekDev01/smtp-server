@@ -21,3 +21,5 @@ RUN python3.11 -m pip install uwsgi
 COPY src/mail.py src/mail.py
 
 WORKDIR /src
+
+CMD ["python", "mail.py"]
